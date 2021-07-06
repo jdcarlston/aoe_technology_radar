@@ -34,6 +34,7 @@
     "classnames": "^2.3.1",
     "front-matter": "^4.0.2",
     "fs-extra": "^10.0.0",
+    "gzipper": "^5.0.0",
     "highlight.js": "^11.0.0",
     "marked": "^2.0.7",
     "moment": "^2.29.1",

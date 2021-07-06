@@ -51,7 +51,12 @@ const buildTemplate = () => {
 };
 
 buildTemplate().then(() => {
+  const packageManager = fs.existsSync(paths.appYarnLock) ? "yarn" : "npx";
   fs.copySync(paths.templateBuild, paths.appBuild);
-  fs.copySync(paths.appPublic, paths.appBuild);
-  console.log(`${paths.appBuild} was created and can be deployed.`);
+  // fs.copySync(paths.appPublic, paths.appBuild);
+  runCommand(
+    `${packageManager} gzipper compress ${paths.appPublic} ${paths.appBuild}`
+  ).then(() => {
+    console.log(`${paths.appBuild} was created and can be deployed.`);
+  });
 });
